@@ -1,0 +1,8 @@
+此项目为监控系统信息以及磁盘 需放置多台服务器上
+conf 配置文件目录
+system 监控脚本
+main 主运行程序 以及 选择监控的信息
+
+安装
+1.环境python3 pip3
+2.pip install -r requirements.txt
