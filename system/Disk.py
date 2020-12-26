@@ -1,6 +1,8 @@
 import psutil
 import json
 import requests
+import time
+
 # 导入配置文件信息
 from conf import config
 
@@ -33,6 +35,7 @@ class ShowDisk:
             disk_free   硬盘剩余大小
             percent     硬盘使用百分比
             threshold   设置硬盘阈值 硬盘总容量的百分之几的数值
+            date        当前时间
             """
             disk_name = name[0]
             disk_full = round(psutil.disk_usage(disk_name).total / 1024 / 1024 / 1024)
@@ -40,6 +43,7 @@ class ShowDisk:
             disk_free = round(psutil.disk_usage(disk_name).free / 1024 / 1024 / 1024)
             percent = psutil.disk_usage(disk_name).percent
             threshold = config.threshold
+            date = time.strftime("%Y-%m-%d %H:%M:%S")
             #   判断使用空间是否大于总容量的百分之几
             if str(disk_used) > str(disk_full * threshold):
                 headers = {'content-type': 'application/json'}
@@ -48,6 +52,7 @@ class ShowDisk:
                     "markdown": {
                         "title": "%s" % self.keyName,
                         "text": "#硬盘剩余空间不足\n\n" +
+                                ">时间：%s\n\n" % date +
                                 ">分区名称: %s\n\n" % disk_name +
                                 ">分区总大小: %sG\n\n" % disk_full +
                                 ">分区使用大小: %sG\n\n" % disk_used +
