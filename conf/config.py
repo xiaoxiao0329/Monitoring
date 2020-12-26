@@ -1,4 +1,4 @@
-# 钉钉配置
+# 钉钉配置 keyname 设置钉钉的关键字
 webhook = ""
 keyName = ""
 
