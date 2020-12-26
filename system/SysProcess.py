@@ -40,6 +40,8 @@ class check_server:
                     "title": "%s" % config.keyName,
                     "text": "#进程监控\n\n" +
                             ">时间：%s\n\n" % date +
+                            ">主机名：%s\n\n" % config.hostname +
+                            ">主机IP：%s\n\n" % config.ipaddr +
                             ">当前[%s]进程不存在 \n\n" % server
 
                 }
@@ -50,4 +52,4 @@ class check_server:
 
 
 if __name__ == '__main__':
-    SysProcess.check_server().checkprocess()
+    check_server().checkprocess()
