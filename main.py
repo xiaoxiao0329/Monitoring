@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     from system import SysProcess
 
-    SysProcess.check_server().checkprocess()
+    SysProcess.check_servername()
 
     # =========================================================================================================
 
