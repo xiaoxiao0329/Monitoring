@@ -12,10 +12,11 @@ class check:
         for url in config.weburl:
             try:
 
-                coed = requests.get(url, timeout=4).status_code
+                requests.get(url, timeout=4).status_code
                 print('正常', url)
 
-            except requests.exceptions.ConnectTimeout as e:
+            except (requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError,
+                    requests.exceptions.ReadTimeout) as e:
 
                 print('异常', url)
 

@@ -33,7 +33,7 @@ class listen():
                     "msgtype": "markdown",
                     "markdown": {
                         "title": "%s" % config.keyName,
-                        "text": "#端口监控\n\n" +
+                        "text": "#本机端口监控\n\n" +
                                 ">时间：%s\n\n" % date +
                                 ">主机名：%s\n\n" % config.hostname +
                                 ">主机IP：%s\n\n" % config.ipaddr +

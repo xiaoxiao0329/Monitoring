@@ -23,3 +23,12 @@ tcp_port = [80, 3306, 6379, 5432, 8080, 22]
 # TODO:此参数为监控网站是否正常访问 以列表形式写入逗号分割 请以 https//或http:// 开头
 # TODO:此配置参数被 system/WebAppStatus.py 所引用
 weburl = ['']
+
+# TODO:此参数为多台机器多端口进行批量Telnet
+# TODO:此配置参数被 system/TelnetPort.py 所引用
+telnet_data = {
+    "static": [
+        {"host": ['localhost'], "port": [135, 445, 7680, 49664, 443]},
+        {"host": ['127.0.0.1'], "port": [2222, 22, 3306, 5432, 6379]}
+    ]
+}
