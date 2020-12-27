@@ -19,3 +19,7 @@ server_name = ['']
 # TODO:监控本机端口是否运行 以列表形式写入逗号分割 以下为默认监控端口 根据需求进行更改
 # TODO:此配置参数被 system/ListenPort.py 所引用
 tcp_port = [80, 3306, 6379, 5432, 8080, 22]
+
+# TODO:此参数为监控网站是否正常访问 以列表形式写入逗号分割
+# TODO:此配置参数被 system/WebAppStatus.py 所引用
+weburl = ['']
