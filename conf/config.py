@@ -4,7 +4,7 @@ import socket
 hostname = socket.getfqdn(socket.gethostname())
 ipaddr = socket.gethostbyname(socket.gethostname())
 
-# TODO:钉钉配置 keyname 设置钉钉的关键字 此配置参数为全局引用
+# TODO:钉钉配置 webhook 设置钉钉的关键字 此配置参数为全局引用
 webhook = ""
 keyName = ""
 
