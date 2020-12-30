@@ -25,7 +25,7 @@
 
 安装环境:
     1. 环境python3 pip3
-    2. pip install -r requirements.txt
+    2. pip3 install -r requirements.txt
     3. 配置config文件
     4. 主程序main.py
     5. 使用crontab 设置计划任务
