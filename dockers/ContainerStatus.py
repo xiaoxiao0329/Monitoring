@@ -19,11 +19,14 @@ class Container:
                 # 容器id
                 for docker_id in dcoker_list['container_id']:
 
-                    # 遍历配置问价中的docker_api 进行连接
-                    docker_client = docker.DockerClient(base_url=docker_api)
-                    # 获取配置文件中监控的容器id运行状态 运行为True 退出为False
-                    status = docker_client.containers.get(docker_id).attrs['State']['Running']
-                    docker_name = docker_client.containers.get(docker_id).attrs['Name']
+                    try:
+                        # 遍历配置问价中的docker_api 进行连接
+                        docker_client = docker.DockerClient(base_url=docker_api)
+                        # 获取配置文件中监控的容器id运行状态 运行为True 退出为False
+                        status = docker_client.containers.get(docker_id).attrs['State']['Running']
+                        docker_name = docker_client.containers.get(docker_id).attrs['Name']
+                    except docker.errors.DockerException:
+                        break
 
                     # 判断状态
                     if status:
@@ -39,7 +42,7 @@ class Container:
                                 "title": "%s" % docker_config.keyName,
                                 "text": "#docker容器状态监控\n\n" +
                                         ">时间:%s\n\n" % date +
-                                        ">IP: %s\n\n" % docker_api +
+                                        ">DockerAPI: %s\n\n" % docker_api +
                                         ">容器名称: %s\n\n" % docker_name +
                                         ">容器状态: %s" % status
 
