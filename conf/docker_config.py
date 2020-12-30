@@ -8,6 +8,6 @@ keyName = ""
 # TODO: 设置docker的api地址和监控的容器短ID
 docker_Api = {
     "static": [
-        {"docker_host": ['qingran.ltd:2375'], "container_id": ['d18a6995031b', 'f5ad2dc29915', 'a17b62069bea']}
+        {"docker_host": ['localhost:2375'], "container_id": ['d18a6995031b', 'f5ad2dc29915', 'a17b62069bea']}
     ]
 }
