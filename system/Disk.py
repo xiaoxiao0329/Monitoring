@@ -10,7 +10,7 @@ from conf import config
 # 创建收集硬盘信息类
 class showDisk():
 
-    def __init__(self, ):
+    def __init__(self):
 
         # 获取当前系统所有硬盘信息
         self.disk = psutil.disk_partitions()
@@ -30,7 +30,7 @@ class showDisk():
             date        当前时间
             """
 
-            disk_name = name[0]
+            disk_name = name[1]
             disk_full = round(psutil.disk_usage(disk_name).total / 1024 / 1024 / 1024)
             disk_used = round(psutil.disk_usage(disk_name).used / 1024 / 1024 / 1024)
             disk_free = round(psutil.disk_usage(disk_name).free / 1024 / 1024 / 1024)
