@@ -22,29 +22,32 @@ def show_system_pid(processname):
 # 此方法为 校验配置文件中定义的进程是否存在
 def check_servername():
     # 循环 当前配置文件中的服务列表
-    for server in config.server_name:
-        if isinstance(show_system_pid(server), int):
-            pass
-        else:
-            # 获取当前时间
-            date = time.strftime("%Y-%m-%d %H:%M:%S")
-            headers = {'content-type': 'application/json'}
-            data = {
-                "msgtype": "markdown",
-                "markdown": {
-                    "title": "%s" % config.keyName,
-                    "text": "#进程监控\n\n" +
-                            ">时间：%s\n\n" % date +
-                            ">主机名：%s\n\n" % config.hostname +
-                            ">主机IP：%s\n\n" % config.ipaddr +
-                            ">当前[%s]进程不存在 \n\n" % server
+    if len(config.server_name):
+
+        for server in config.server_name:
+            if isinstance(show_system_pid(server), int):
+                pass
+            else:
+                # 获取当前时间
+                date = time.strftime("%Y-%m-%d %H:%M:%S")
+                headers = {'content-type': 'application/json'}
+                data = {
+                    "msgtype": "markdown",
+                    "markdown": {
+                        "title": "%s" % config.keyName,
+                        "text": "#进程监控\n\n" +
+                                ">时间：%s\n\n" % date +
+                                ">主机名：%s\n\n" % config.hostname +
+                                ">主机IP：%s\n\n" % config.ipaddr +
+                                ">当前[%s]进程不存在 \n\n" % server
+
+                    }
 
                 }
-
-            }
-            # 封装信息提交到钉钉API
-            requests.post(config.webhook, headers=headers, data=json.dumps(data))
-
+                # 封装信息提交到钉钉API
+                requests.post(config.webhook, headers=headers, data=json.dumps(data))
+        else:
+            return None
 
 if __name__ == '__main__':
     check_servername()

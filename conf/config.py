@@ -14,7 +14,7 @@ threshold = 0.85
 
 # TODO:设置监控程序的名 以列表形式写入逗号分割服务名
 # TODO:此配置参数被 system/SysProcess.py 所引用
-server_name = ['']
+server_name = []
 
 # TODO:监控本机端口是否运行 以列表形式写入逗号分割 以下为默认监控端口 根据需求进行更改
 # TODO:此配置参数被 system/ListenPort.py 所引用
