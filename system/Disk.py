@@ -8,7 +8,7 @@ from conf import config
 
 
 # 创建收集硬盘信息类
-class showDisk():
+class showDisk:
 
     def __init__(self):
 
