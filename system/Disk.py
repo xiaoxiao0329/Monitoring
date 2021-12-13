@@ -39,7 +39,7 @@ class showDisk:
             date = time.strftime("%Y-%m-%d %H:%M:%S")
 
             #   判断使用空间是否大于总容量的百分之几
-            if str(disk_used) > str(disk_full * threshold):
+            if float(disk_used) > float(disk_full * threshold):
                 headers = {'content-type': 'application/json'}
                 data = {
                     "msgtype": "markdown",
